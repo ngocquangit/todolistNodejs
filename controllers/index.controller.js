@@ -1,5 +1,6 @@
 var db = require('../db');
 const shortid = require('shortid');
+
 module.exports.index = function(req, res) {
   res.render('index', {
     todos: db.get('todos').value(),
@@ -14,11 +15,36 @@ module.exports.create = function(req, res) {
   res.redirect('/');
 };
 module.exports.delete = function(req, res) {
-  var id = req.params.id;
-  var todo = db.get('todos').find({ id: id });
-  console.log(todo);
-  // res.redirect('/');
-  res.render('index', {
-    todos: db.get('todos').value(),
+  var idDel = req.params.id;
+  todoDel = db.get('todos').findIndex({ id: idDel });
+  db.get('todos')
+    .splice(todoDel, 1)
+    .write();
+  res.redirect('/');
+};
+
+module.exports.getEdit = function(req, res) {
+  var matchedTodo = db
+    .get('todos')
+    .value()
+    .filter(todo => {
+      return todo.id.indexOf(req.params.id) !== -1;
+    });
+  res.render('edit', {
+    todos: matchedTodo,
   });
+};
+module.exports.postEdit = function(req, res) {
+  var idEdit = req.params.id;
+  var index = db.get('todos').findIndex({ id: idEdit });
+  console.log(req.body.todo);
+  obEdit = db
+    .get('todos')
+    .find({ id: idEdit })
+    .value();
+  obEdit.name = req.body.nameTodo;
+  db.get('todos')
+    .fill(obEdit, index, index + 1)
+    .write();
+  res.redirect('/');
 };

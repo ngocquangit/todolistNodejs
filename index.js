@@ -15,6 +15,8 @@ app.use(express.static('views'));
 app.get('/', controller.index);
 
 app.post('/create', controller.create);
-app.get('/delete/:id', controller.delete);
+app.post('/delete/:id', controller.delete);
+app.get('/edit/:id', controller.getEdit);
+app.post('/edit/:id', controller.postEdit);
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

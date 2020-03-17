@@ -2,27 +2,22 @@
   "todos": [
     {
       "name": "Nguyễn Ngọc Quang",
-      "id": "nBeey0EK",
+      "id": "F7f-YO0X",
       "done": false
     },
     {
       "name": "Học Nodejs",
-      "id": "1R5JIHGc",
+      "id": "Cpc7dI2G",
       "done": false
     },
     {
       "name": "Học Angular",
-      "id": "0_PCestk",
+      "id": "ydSrOw8P",
       "done": false
     },
     {
-      "name": "Học PHP",
-      "id": "PV4jGUp-",
-      "done": false
-    },
-    {
-      "name": "Học Vuejs",
-      "id": "D_q5VT9Y",
+      "name": "Quang đẹp trai",
+      "id": "H2SHlZGy",
       "done": false
     }
   ]

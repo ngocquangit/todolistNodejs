@@ -1,24 +1,23 @@
-doctype html
-head
-  meta(charset='UTF-8')
-  meta(name='viewport', content='width=device-width, initial-scale=1.0')
-  link(href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js', rel='stylesheet')
-  title My to do list mini
-  link(rel='stylesheet', type='text/css', href='style.css')
-h1
-  span.spyling  Todo
-  |  List
-.input_div
-  form(action="create",method="POST")
-    input.input( name="name",type='text', placeholder='Việc cần làm trong ngày? ')
-    button.addButton
-      i.fas.fa-plus
-      | +
-.container
-  each val in todos
-    .item
-      textarea.item_input(cols='30', rows='2', disabled='') #{val.name}
-      button.editButton Sửa
-      button.removeButton Xóa
-      button.doneButton Hoàn Thành
-script(type='text/javascript', src='main.js')
+extends layouts/layouts.pug
+
+block content
+  h1
+    span.spyling  Todo
+    |  List
+  .input_div
+    form(action="create",method="POST")
+      input.input( name="name",type='text', placeholder='Việc cần làm trong ngày? ')
+      button.addButton
+        i.fas.fa-plus
+        | +
+  .container
+    each val in todos
+      .item
+        textarea.item_input(cols='30', rows='2', name="todo",disabled="true") #{val.name} 
+        .buttonGroup
+          form.formEdit(action="edit/"+val.id, method="GET")  
+            button.editButton Sửa
+          form.formDel(action="delete/"+val.id, method="POST")
+            button.removeButton Xóa
+          form.formDone(action="delete/"+val.id, method="POST")
+            button.doneButton Hoàn Thành

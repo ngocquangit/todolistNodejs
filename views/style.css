@@ -140,10 +140,33 @@ h1 {
   border-bottom: 4px solid #138e1d !important;
 }
 
+.buttonGroup {
+  display: inline-block;
+}
+
+.formEdit {
+  display: inline-block;
+}
+
+.formDel {
+  display: inline-block;
+}
+
+.formDone {
+  display: inline-block;
+}
+
+.editLabel {
+  display: block;
+  font-size: 1.6rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
 @media only screen and (max-width: 480px) {
   .input_div .input {
     width: 27rem;
-    margin: 0 .5rem 0 -0.5rem
+    margin: 0 0.5rem 0 -0.5rem;
   }
   textarea {
     height: 5.5rem;

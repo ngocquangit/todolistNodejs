@@ -1,0 +1,12 @@
+extends layouts/layouts.pug
+
+block content
+  h1
+    span.spyling  Edit Todo
+    |  List
+  .input_div
+    form(action="/edit/"+todos[0].id,method="POST")
+      #form_group
+        label.editLabel Tên việc cần làm
+        input.input(type="text", name="nameTodo",value= todos[0].name)
+        input.addButton(type="submit",value="Sửa")
