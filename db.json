@@ -2,23 +2,13 @@
   "todos": [
     {
       "name": "Nguyễn Ngọc Quang",
-      "id": "F7f-YO0X",
-      "done": false
+      "id": "G-hnyOi_w",
+      "done": "Hoàn thành"
     },
     {
       "name": "Học Nodejs",
-      "id": "Cpc7dI2G",
-      "done": false
-    },
-    {
-      "name": "Học Angular",
-      "id": "ydSrOw8P",
-      "done": false
-    },
-    {
-      "name": "Quang đẹp trai",
-      "id": "H2SHlZGy",
-      "done": false
+      "id": "jnMPTffSm",
+      "done": "Hoàn thành"
     }
   ]
 }

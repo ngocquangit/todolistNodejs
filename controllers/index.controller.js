@@ -8,7 +8,7 @@ module.exports.index = function(req, res) {
 };
 module.exports.create = function(req, res) {
   req.body.id = shortid.generate();
-  req.body.done = false;
+  req.body.done = 'Đang làm';
   db.get('todos')
     .push(req.body)
     .write();
@@ -43,6 +43,23 @@ module.exports.postEdit = function(req, res) {
     .find({ id: idEdit })
     .value();
   obEdit.name = req.body.nameTodo;
+  db.get('todos')
+    .fill(obEdit, index, index + 1)
+    .write();
+  res.redirect('/');
+};
+module.exports.postDone = function(req, res) {
+  var idEdit = req.params.id;
+  var index = db.get('todos').findIndex({ id: idEdit });
+  obEdit = db
+    .get('todos')
+    .find({ id: idEdit })
+    .value();
+  if (obEdit.done === 'Đang làm') {
+    obEdit.done = 'Hoàn thành';
+  } else {
+    obEdit.done = 'Đang làm';
+  }
   db.get('todos')
     .fill(obEdit, index, index + 1)
     .write();

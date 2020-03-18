@@ -19,5 +19,5 @@ block content
             button.editButton Sửa
           form.formDel(action="delete/"+val.id, method="POST")
             button.removeButton Xóa
-          form.formDone(action="delete/"+val.id, method="POST")
-            button.doneButton Hoàn Thành
+          form.formDone(action="done/"+val.id, method="POST")
+            button.doneButton #{val.done}

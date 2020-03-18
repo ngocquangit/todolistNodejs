@@ -18,5 +18,6 @@ app.post('/create', controller.create);
 app.post('/delete/:id', controller.delete);
 app.get('/edit/:id', controller.getEdit);
 app.post('/edit/:id', controller.postEdit);
+app.post('/done/:id', controller.postDone);
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
